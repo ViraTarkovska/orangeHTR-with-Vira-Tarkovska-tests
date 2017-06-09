@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" parallel="tests" thread-count="2"
+	group-by-instances="true">
+
+	<test name="UI tests: Authentication" preserve-order="true">
+		<classes>
+			<class name="com.orange.test.LoginTest"></class>
+			
+			<class name="com.orange.test.SearchByNameTest"></class>
+			
+			<class name="com.orange.test.ChangeSiteLanguageTest"></class>
+					
+		</classes>
+		
+		
+	</test>
+
+</suite>
