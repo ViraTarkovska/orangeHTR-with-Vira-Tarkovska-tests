@@ -25,22 +25,26 @@ public class SearchDirectoryPage extends AbstractPage {
 	@FindBy(css = "#searchBtn")
 	private WebElement searchButton;
 
-	@Step("First time read name")
+	@Step("Read first employee name")
 	@Attachment("Name")
-	public String firstTimeReadName() {
+	public String getFirstEmployeeName() {
 		return firstEmployeeField.getText();
 	}
 
-	@Step("Send name and click 'Search' button")
-	public void searchByName() {
-		nameField.sendKeys(firstTimeReadName());
+	@Step("Search by <{0}>")
+	public void searchByName(String search) {
+		typeIntoNameField(search);
+		clickSearchButton();
+	}
+
+	@Step("Type into 'Name' Field <{0}>")
+	public void typeIntoNameField(String text) {
+		nameField.sendKeys(text);
+	}
+
+	@Step
+	public void clickSearchButton() {
 		searchButton.click();
-	}
-
-	@Step("Second time read name")
-	@Attachment("Name")
-	public String secondTimeReadName() {
-		return firstEmployeeField.getText();
 	}
 
 }

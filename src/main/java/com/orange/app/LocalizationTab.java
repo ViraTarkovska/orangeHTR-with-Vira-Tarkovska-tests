@@ -35,8 +35,19 @@ public class LocalizationTab extends AbstractPage {
 
 	@Step("Go to edit mode")
 	public LocalizationTab switchMode() {
-		btnSave.click();
+		clickSaveEditButton();
 		return new LocalizationTab(driver);
+	}
+	
+	public LocalizationTab switchToEditMode() {
+		String value = btnSave.getAttribute("value");
+		if(value.equals("Edit"))
+			clickSaveEditButton();
+		return this;
+	}
+	
+	public void clickSaveEditButton() {
+		btnSave.click();
 	}
 
 	@Step("Select French")
